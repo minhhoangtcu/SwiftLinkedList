@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B8950AD61CB2EFE600198AA0 /* PeopleList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8950AD51CB2EFE600198AA0 /* PeopleList.swift */; };
 		B8C6E8541CB1960200C22271 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C6E8531CB1960200C22271 /* main.swift */; };
+		B8C6E85C1CB19C7F00C22271 /* SteamReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C6E85B1CB19C7F00C22271 /* SteamReader.swift */; };
+		B8C6E85F1CB1A99D00C22271 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C6E85E1CB1A99D00C22271 /* Person.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +26,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B8950AD51CB2EFE600198AA0 /* PeopleList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleList.swift; sourceTree = "<group>"; };
 		B8C6E8501CB1960200C22271 /* Lab5 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Lab5; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8C6E8531CB1960200C22271 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		B8C6E85B1CB19C7F00C22271 /* SteamReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SteamReader.swift; sourceTree = "<group>"; };
+		B8C6E85E1CB1A99D00C22271 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +64,9 @@
 			isa = PBXGroup;
 			children = (
 				B8C6E8531CB1960200C22271 /* main.swift */,
+				B8C6E85B1CB19C7F00C22271 /* SteamReader.swift */,
+				B8C6E85E1CB1A99D00C22271 /* Person.swift */,
+				B8950AD51CB2EFE600198AA0 /* PeopleList.swift */,
 			);
 			path = Lab5;
 			sourceTree = "<group>";
@@ -119,6 +128,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8950AD61CB2EFE600198AA0 /* PeopleList.swift in Sources */,
+				B8C6E85F1CB1A99D00C22271 /* Person.swift in Sources */,
+				B8C6E85C1CB19C7F00C22271 /* SteamReader.swift in Sources */,
 				B8C6E8541CB1960200C22271 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -239,6 +251,7 @@
 				B8C6E8591CB1960200C22271 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
