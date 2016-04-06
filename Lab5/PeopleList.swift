@@ -88,6 +88,22 @@ class PeopleList {
         }
     }
     
+    func printAll() {
+        if isEmpty() {
+            print("PA - List is empty.")
+        }
+        else {
+            print("PA - Print everyone in the list")
+            var runner: Person? = root!.next
+            
+            while runner != nil {
+                print("\(runner!.id) \t\(runner!.name) \t\(runner!.department) \t\(runner!.title) \t\(runner!.pay)")
+                runner = runner!.next
+            }
+            print("PA - Finished printing")
+        }
+    }
+    
     func isEmpty() -> Bool {
         return size == 0;
     }

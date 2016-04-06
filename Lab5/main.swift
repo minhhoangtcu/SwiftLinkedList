@@ -44,8 +44,9 @@ if let aStreamReader = StreamReader(path: filePath) {
 //            
 //            case "UP":
 //            
-//            case "PA"
-//            
+            case "PA":
+                list.printAll()
+
 //            case "PI"
 //            
 //            case "PT"
