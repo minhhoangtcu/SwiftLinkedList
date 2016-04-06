@@ -31,14 +31,8 @@ if let aStreamReader = StreamReader(path: filePath) {
                 let name: String = allInfo[2]
                 let department: String = allInfo[3]
                 let title: String = allInfo[4]
-                
-                // get pay. Remove two last characters: \r
-                let range = allInfo[5].endIndex.advancedBy(-2)..<allInfo[5].endIndex
-                allInfo[5].removeRange(range)
-                let pay: Double = Double(allInfo[5])!
-                
-                let temp: Person = Person(id: id, name: name, department: department, title: title, pay: pay)
-                list.add(temp)
+                let pay: Double = getPay(allInfo[5])
+                list.add(Person(id: id, name: name, department: department, title: title, pay: pay))
             
 //            case "DE":
 //            
