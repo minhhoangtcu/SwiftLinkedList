@@ -58,8 +58,6 @@ if let aStreamReader = StreamReader(path: filePath) {
         default:
             print()
         }
-        
-        print(command)
     }
 }
 
