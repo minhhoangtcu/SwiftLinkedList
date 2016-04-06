@@ -19,7 +19,7 @@ if let aStreamReader = StreamReader(path: filePath) {
     
     while let line = aStreamReader.nextLine() {
         
-        var allInfo = line.componentsSeparatedByString(" ")
+        var allInfo = removeTwoEndingChars(line).componentsSeparatedByString(" ")
         allInfo = allInfo.filter { $0 != "" }
         
         let command = allInfo[0]
@@ -31,11 +31,13 @@ if let aStreamReader = StreamReader(path: filePath) {
                 let name: String = allInfo[2]
                 let department: String = allInfo[3]
                 let title: String = allInfo[4]
-                let pay: Double = getPay(allInfo[5])
+                let pay: Double = Double(allInfo[5])!
                 list.add(Person(id: id, name: name, department: department, title: title, pay: pay))
             
-//            case "DE":
-//            
+            case "DE":
+                let id: Int = Int(allInfo[1])!
+                list.remove(id)
+            
 //            case "UD":
 //            
 //            case "UT":

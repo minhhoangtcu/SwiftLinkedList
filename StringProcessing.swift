@@ -8,10 +8,10 @@
 
 import Foundation
 
-// Get pay from String. Remove two last characters: \r
-func getPay(text: String) -> Double {
-    let range = text.endIndex.advancedBy(-2)..<text.endIndex
-    var output = text
-    output.removeRange(range)
-    return Double(output)!
+// Remove two last characters
+func removeTwoEndingChars(text: String) -> String {
+    var output: String = text
+    output.removeAtIndex(output.endIndex.predecessor())
+    output.removeAtIndex(output.endIndex.predecessor())
+    return output
 }

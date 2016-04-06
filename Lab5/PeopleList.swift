@@ -19,15 +19,15 @@ class PeopleList {
             addAtRoot(person)
         }
         else {
-            var runner: Person! = root
-            var previous: Person?
+            var runner: Person? = root!.next
+            var previous: Person! = root
             
             while runner != nil && person >= runner {
                 if (runner == person) {
                     print("IN - Duplicate \(person.id). Failed to add the person to the list.");
                 }
-                previous = runner;
-                runner = runner.next
+                previous = runner!;
+                runner = runner!.next
             }
             
             previous!.next = person; // wrapped because the loop always going to run once (else we have already added before root).
@@ -37,7 +37,7 @@ class PeopleList {
                 print("IN - Added \(person.id) to the end of the list.");
             }
             else {
-                print("IN - Added \(person.id) between \(previous!.id) and \(runner.id)");
+                print("IN - Added \(person.id) between \(previous!.id) and \(runner!.id)");
             }
         }
         
@@ -55,6 +55,37 @@ class PeopleList {
         }
         print("IN - Added \(person.id) to the beginning of the list.");
         size += 1
+    }
+    
+    func remove(id: Int) {
+        
+        if isEmpty() {
+            print("DE - Cannot remove \(id) because list is empty.");
+        }
+        else if root!.id == id {
+            root = root!.next
+            size -= 1
+            print("DE - Removed \(id) at the head of list.");
+        }
+        else {
+            var runner: Person? = root!.next
+            var previous: Person! = root
+            
+            while runner != nil {
+                if runner!.id == id {
+                    previous!.next = runner!.next
+                    print("DE - Removed \(id).");
+                    size -= 1
+                    return;
+                }
+
+                previous = runner!
+                runner = runner!.next;
+            }
+            
+            // reached end of list
+            print("DE - Cannot remove \(id). Provided id does not match anyone in the list.");
+        }
     }
     
     func isEmpty() -> Bool {
