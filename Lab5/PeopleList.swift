@@ -19,10 +19,25 @@ class PeopleList {
             addAtRoot(person)
         }
         else {
-            // find the person 
-            var runner = root!
-            while (runner.next != nil && person > runner) {
-                runner = runner.next!
+            var runner: Person! = root
+            var previous: Person?
+            
+            while runner != nil && person >= runner {
+                if (runner == person) {
+                    print("IN - Duplicate \(person.id). Failed to add the person to the list.");
+                }
+                previous = runner;
+                runner = runner.next
+            }
+            
+            previous!.next = person; // wrapped because the loop always going to run once (else we have already added before root).
+            person.next = runner;
+            
+            if runner == nil {
+                print("IN - Added \(person.id) to the end of the list.");
+            }
+            else {
+                print("IN - Added \(person.id) between \(previous!.id) and \(runner.id)");
             }
         }
         
@@ -38,6 +53,7 @@ class PeopleList {
             person.next = root
             root = person
         }
+        print("IN - Added \(person.id) to the beginning of the list.");
         size += 1
     }
     

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B89102E11CB505700066CC20 /* Lab5Data.txt in Copy Files */ = {isa = PBXBuildFile; fileRef = B89102DE1CB502900066CC20 /* Lab5Data.txt */; };
 		B8950AD61CB2EFE600198AA0 /* PeopleList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8950AD51CB2EFE600198AA0 /* PeopleList.swift */; };
 		B8C6E8541CB1960200C22271 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C6E8531CB1960200C22271 /* main.swift */; };
 		B8C6E85C1CB19C7F00C22271 /* SteamReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C6E85B1CB19C7F00C22271 /* SteamReader.swift */; };
@@ -14,18 +15,21 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		B8C6E84E1CB1960200C22271 /* CopyFiles */ = {
+		B8C6E84E1CB1960200C22271 /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 16;
 			files = (
+				B89102E11CB505700066CC20 /* Lab5Data.txt in Copy Files */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			name = "Copy Files";
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B89102DD1CB502900066CC20 /* en */ = {isa = PBXFileReference; lastKnownFileType = text; name = en; path = en.lproj/Lab5Data.txt; sourceTree = "<group>"; };
 		B8950AD51CB2EFE600198AA0 /* PeopleList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleList.swift; sourceTree = "<group>"; };
 		B8C6E8501CB1960200C22271 /* Lab5 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Lab5; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8C6E8531CB1960200C22271 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -47,6 +51,7 @@
 		B8C6E8471CB1960200C22271 = {
 			isa = PBXGroup;
 			children = (
+				B89102DE1CB502900066CC20 /* Lab5Data.txt */,
 				B8C6E8521CB1960200C22271 /* Lab5 */,
 				B8C6E8511CB1960200C22271 /* Products */,
 			);
@@ -80,7 +85,7 @@
 			buildPhases = (
 				B8C6E84C1CB1960200C22271 /* Sources */,
 				B8C6E84D1CB1960200C22271 /* Frameworks */,
-				B8C6E84E1CB1960200C22271 /* CopyFiles */,
+				B8C6E84E1CB1960200C22271 /* Copy Files */,
 			);
 			buildRules = (
 			);
@@ -97,6 +102,9 @@
 		B8C6E8481CB1960200C22271 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					New,
+				);
 				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Hoang, Minh";
@@ -136,6 +144,17 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B89102DE1CB502900066CC20 /* Lab5Data.txt */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B89102DD1CB502900066CC20 /* en */,
+			);
+			name = Lab5Data.txt;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		B8C6E8551CB1960200C22271 /* Debug */ = {
