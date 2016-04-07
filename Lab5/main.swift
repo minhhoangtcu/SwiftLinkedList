@@ -35,8 +35,7 @@ if let aStreamReader = StreamReader(path: filePath) {
                 list.add(Person(id: id, name: name, department: department, title: title, pay: pay))
             
             case "DE":
-                let id: Int = Int(allInfo[1])!
-                list.remove(id)
+                list.remove(Int(allInfo[1])!)
             
             case "UD":
                 list.updateDepartment(Int(allInfo[1])!, name: allInfo[2], updating: allInfo[3])
@@ -50,11 +49,15 @@ if let aStreamReader = StreamReader(path: filePath) {
             case "PA":
                 list.printAll()
 
-//            case "PI"
-//            
-//            case "PT"
-//            
-//            case "PD""
+            case "PI":
+                list.printInfo(Int(allInfo[1])!, name: allInfo[2])
+            
+            case "PT":
+                list.printTitle(allInfo[1])
+
+            case "PD":
+                list.printDepartment(allInfo[1])
+            
         default:
             print()
         }

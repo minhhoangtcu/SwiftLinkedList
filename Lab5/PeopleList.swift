@@ -97,41 +97,78 @@ class PeopleList {
             var runner: Person? = root
             
             while runner != nil {
-                print("\(runner!.getDisplayName()) \t\(runner!.name)           \t\(runner!.department)     \t\(runner!.title) \t\(runner!.pay)")
+                printPerson(runner!)
                 runner = runner!.next
             }
             print("---Finished printing------------")
         }
     }
     
-    func updateTitle(id: Int, name: String, updating: String) {
-        func upTi(person: Person, title: String) -> Void {
-            print("UT - Updated title of \(person.id) from \(person.title) to \(title)")
-            person.title = title
+    func printInfo(id: Int, name: String) {
+        printPeopleWith(" id: \(id)", isMatch: {
+            $0.id == id && $0.name == name
+        })
+    }
+    
+    func printTitle(title: String) {
+        printPeopleWith(" title: \(title)", isMatch: {
+            $0.title == title
+        })
+    }
+    
+    func printDepartment(department: String) {
+        printPeopleWith(" department: \(department)", isMatch: {
+            $0.department == department
+        })
+
+    }
+    
+    func printPeopleWith(attribute: String, isMatch: (Person) -> Bool) {
+        if isEmpty() {
+            print("PA - List is empty.")
         }
-        let transform = upTi
-        update(id, name: name, updating: updating, set: transform)
+        else {
+            print("---Print everyone with \(attribute)-----")
+            var runner: Person? = root
+            var isFound: Bool = false
+            
+            while runner != nil {
+                if isMatch(runner!) {
+                    printPerson(runner!)
+                    isFound = true
+                }
+                runner = runner!.next
+            }
+            if !isFound {
+                print("Nobody with with \(attribute) was found.")
+            }
+            print("---Finished printing with \(attribute)--")
+        }
+    }
+    
+    func updateTitle(id: Int, name: String, updating: String) {
+        update(id, name: name, set: {
+            print("UT - Updated title of \($0.id) from \($0.title) to \(updating)")
+            $0.title = updating
+        })
     }
     
     func updateDepartment(id: Int, name: String, updating: String) {
-        func upDe(person: Person, department: String) -> Void {
-            print("UD - Updated department of \(person.id) from \(person.department) to \(department)")
-            person.department = department
-        }
-        let transform = upDe
-        update(id, name: name, updating: updating, set: transform)
+        update(id, name: name, set: {
+            print("UD - Updated department of \($0.id) from \($0.department) to \(updating)")
+            $0.department = updating
+        })
     }
     
     func updatePay(id: Int, name: String, updating: String) {
-        func upPa(person: Person, pay: String) -> Void {
-            print("UP - Updated payment of \(person.id) from \(person.pay) to \(pay)")
-            person.pay = Double(pay)!
-        }
-        let transform = upPa
-        update(id, name: name, updating: updating, set: transform)
+        update(id, name: name, set: {
+            print("UP - Updated payment of \($0.id) from \($0.pay) to \(updating)")
+            $0.pay = Double(updating)!
+
+        })
     }
     
-    func update(id: Int, name: String, updating: String, set: (Person, String) -> Void) {
+    func update(id: Int, name: String, set: (Person) -> Void) {
         if isEmpty() {
             print("UPDATE - List is empty.")
         }
@@ -144,7 +181,7 @@ class PeopleList {
             
             // if we actually find somebody
             if runner != nil {
-                set(runner!, updating)
+                set(runner!)
             }
             else {
                 print("UPDATE - Cannot update \(id) with name: \(name). Provided id and name does not match anyone in the list.");
@@ -155,5 +192,8 @@ class PeopleList {
     func isEmpty() -> Bool {
         return size == 0;
     }
+    
+    func printPerson(person: Person) {
+        print("\(person.getDisplayName()) \t\(person.name)           \t\(person.department)     \t\(person.title) \t\(person.pay)")
+    }
 }
-
