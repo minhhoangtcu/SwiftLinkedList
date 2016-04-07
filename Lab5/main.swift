@@ -41,10 +41,12 @@ if let aStreamReader = StreamReader(path: filePath) {
             case "UD":
                 list.updateDepartment(Int(allInfo[1])!, name: allInfo[2], updating: allInfo[3])
 
-//            case "UT":
-//            
-//            case "UP":
-//
+            case "UT":
+                list.updateTitle(Int(allInfo[1])!, name: allInfo[2], updating: allInfo[3])
+            
+            case "UP":
+                list.updatePay(Int(allInfo[1])!, name: allInfo[2], updating: allInfo[3])
+
             case "PA":
                 list.printAll()
 

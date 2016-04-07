@@ -104,12 +104,30 @@ class PeopleList {
         }
     }
     
+    func updateTitle(id: Int, name: String, updating: String) {
+        func upTi(person: Person, title: String) -> Void {
+            print("UT - Updated title of \(person.id) from \(person.title) to \(title)")
+            person.title = title
+        }
+        let transform = upTi
+        update(id, name: name, updating: updating, set: transform)
+    }
+    
     func updateDepartment(id: Int, name: String, updating: String) {
         func upDe(person: Person, department: String) -> Void {
             print("UD - Updated department of \(person.id) from \(person.department) to \(department)")
             person.department = department
         }
         let transform = upDe
+        update(id, name: name, updating: updating, set: transform)
+    }
+    
+    func updatePay(id: Int, name: String, updating: String) {
+        func upPa(person: Person, pay: String) -> Void {
+            print("UP - Updated payment of \(person.id) from \(person.pay) to \(pay)")
+            person.pay = Double(pay)!
+        }
+        let transform = upPa
         update(id, name: name, updating: updating, set: transform)
     }
     
