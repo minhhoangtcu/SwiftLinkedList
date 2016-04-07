@@ -106,7 +106,7 @@ class PeopleList {
     }
     
     func printInfo(id: Int, name: String) {
-        printPeopleWith(" id: \(id)", isMatch: {
+        printPeopleWith(" id: \(id) and name: \(name)", isMatch: {
             $0.id == id && $0.name == name
         })
     }
@@ -140,6 +140,7 @@ class PeopleList {
                 }
                 runner = runner!.next
             }
+            
             if !isFound {
                 print("Nobody with with \(attribute) was found.")
             }
@@ -177,17 +178,16 @@ class PeopleList {
             var runner: Person? = root!
             
             // stop when runner reaches end of list or find somebody with provided name
-            while runner != nil && runner!.id != id && runner!.name != name {
+            while runner != nil {
+                if runner!.id == id && runner!.name == name {
+                    set(runner!)
+                    return
+                }
                 runner = runner!.next
             }
             
-            // if we actually find somebody
-            if runner != nil {
-                set(runner!)
-            }
-            else {
-                print("UPDATE - Cannot update \(id) with name: \(name). Provided id and name does not match anyone in the list.");
-            }
+            // if we cannot find anyone
+            print("UPDATE - Cannot update \(id) with name: \(name). Provided id and name does not match anyone in the list.");
         }
     }
     
@@ -196,6 +196,6 @@ class PeopleList {
     }
     
     func printPerson(person: Person) {
-        print("\(person.getDisplayName()) \t\(person.name)           \t\(person.department)     \t\(person.title) \t\(person.pay)")
+        print("\(person.getDisplayName()) \t\(person.name)           \t\(person.department)       \t\(person.title)    \t\t\(person.pay)")
     }
 }
