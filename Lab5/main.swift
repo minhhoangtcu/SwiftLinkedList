@@ -5,7 +5,7 @@ let filePath : String = "./en.lproj/Lab5Data.txt"
 
 
 // START OF PROGRAM
-print("<<< PROGRAM INITIALIZED >>>")
+print("<<< PROGRAM INITIALIZED >>>\n")
 
 if let aStreamReader = StreamReader(path: filePath) {
     
@@ -13,13 +13,13 @@ if let aStreamReader = StreamReader(path: filePath) {
         aStreamReader.close()
     }
     
-    print("<<< SUCCESSFUL READ FROM \(filePath) >>>")
+    print("<<< SUCCESSFUL READ FROM \(filePath) >>>\n")
     
     let list: PeopleList = PeopleList()
     
     while let line = aStreamReader.nextLine() {
         
-        var allInfo = removeTwoEndingChars(line).componentsSeparatedByString(" ")
+        var allInfo = removeEndingChar(line).componentsSeparatedByString(" ")
         allInfo = allInfo.filter { $0 != "" }
         
         let command = allInfo[0]
@@ -38,12 +38,13 @@ if let aStreamReader = StreamReader(path: filePath) {
                 let id: Int = Int(allInfo[1])!
                 list.remove(id)
             
-//            case "UD":
-//            
+            case "UD":
+                list.updateDepartment(Int(allInfo[1])!, name: allInfo[2], updating: allInfo[3])
+
 //            case "UT":
 //            
 //            case "UP":
-//            
+//
             case "PA":
                 list.printAll()
 
@@ -59,4 +60,4 @@ if let aStreamReader = StreamReader(path: filePath) {
 }
 
 // TERMINATE PROGRAM
-print("<<< PROGRAM TERMINATED >>>")
+print("\n<<< PROGRAM TERMINATED >>>")

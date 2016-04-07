@@ -24,7 +24,7 @@ class PeopleList {
             
             while runner != nil && person >= runner {
                 if (runner == person) {
-                    print("IN - Duplicate \(person.id). Failed to add the person to the list.");
+                    print("IN - Duplicate \(person.getDisplayName()). Failed to add the person to the list.");
                 }
                 previous = runner!;
                 runner = runner!.next
@@ -34,10 +34,10 @@ class PeopleList {
             person.next = runner;
             
             if runner == nil {
-                print("IN - Added \(person.id) to the end of the list.");
+                print("IN - Added \(person.getDisplayName()) to the end of the list.");
             }
             else {
-                print("IN - Added \(person.id) between \(previous!.id) and \(runner!.id)");
+                print("IN - Added \(person.getDisplayName()) between \(previous!.getDisplayName()) and \(runner!.getDisplayName())");
             }
         }
         
@@ -53,7 +53,7 @@ class PeopleList {
             person.next = root
             root = person
         }
-        print("IN - Added \(person.id) to the beginning of the list.");
+        print("IN - Added \(person.getDisplayName()) to the beginning of the list.");
         size += 1
     }
     
@@ -74,7 +74,7 @@ class PeopleList {
             while runner != nil {
                 if runner!.id == id {
                     previous!.next = runner!.next
-                    print("DE - Removed \(id).");
+                    print("DE - Removed \(runner!.getDisplayName()).");
                     size -= 1
                     return;
                 }
@@ -93,20 +93,49 @@ class PeopleList {
             print("PA - List is empty.")
         }
         else {
-            print("PA - Print everyone in the list")
-            var runner: Person? = root!.next
+            print("---Print everyone in the list---")
+            var runner: Person? = root
             
             while runner != nil {
-                print("\(runner!.id) \t\(runner!.name) \t\(runner!.department) \t\(runner!.title) \t\(runner!.pay)")
+                print("\(runner!.getDisplayName()) \t\(runner!.name)           \t\(runner!.department)     \t\(runner!.title) \t\(runner!.pay)")
                 runner = runner!.next
             }
-            print("PA - Finished printing")
+            print("---Finished printing------------")
+        }
+    }
+    
+    func updateDepartment(id: Int, name: String, updating: String) {
+        func upDe(person: Person, department: String) -> Void {
+            print("UD - Updated department of \(person.id) from \(person.department) to \(department)")
+            person.department = department
+        }
+        let transform = upDe
+        update(id, name: name, updating: updating, set: transform)
+    }
+    
+    func update(id: Int, name: String, updating: String, set: (Person, String) -> Void) {
+        if isEmpty() {
+            print("UPDATE - List is empty.")
+        }
+        else {
+            var runner: Person? = root!.next
+            
+            while runner != nil && runner!.id == id && runner!.name == name {
+                runner = runner!.next
+            }
+            
+            // if we actually find somebody
+            if runner != nil {
+                set(runner!, updating)
+            }
+            else {
+                print("UPDATE - Cannot update \(id) with name: \(name). Provided id and name does not match anyone in the list.");
+            }
         }
     }
     
     func isEmpty() -> Bool {
         return size == 0;
     }
-    
 }
 

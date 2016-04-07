@@ -9,9 +9,8 @@
 import Foundation
 
 // Remove two last characters
-func removeTwoEndingChars(text: String) -> String {
+func removeEndingChar(text: String) -> String {
     var output: String = text
-    output.removeAtIndex(output.endIndex.predecessor())
     output.removeAtIndex(output.endIndex.predecessor())
     return output
 }

@@ -14,7 +14,15 @@ class Person : Comparable {
         self.department = department
         self.title = title
         self.pay = pay
-    }  
+    }
+    
+    func getDisplayName() -> String {
+        var output: String = String(id)
+        for _ in 0..<8-output.characters.count {
+            output.insert("0", atIndex: output.startIndex)
+        }
+        return output
+    }
 }
 
 func < (lhs: Person, rhs: Person) -> Bool {
