@@ -19,12 +19,13 @@ class PeopleList {
             addAtRoot(person)
         }
         else {
-            var runner: Person? = root!.next
+            var runner: Person? = root
             var previous: Person! = root
             
             while runner != nil && person >= runner {
                 if (runner == person) {
-                    print("IN - Duplicate \(person.getDisplayName()). Failed to add the person to the list.");
+                    print("IN - Duplicate \(person.getDisplayName()). Failed to add the person to the list.")
+                    return
                 }
                 previous = runner!;
                 runner = runner!.next
@@ -37,7 +38,7 @@ class PeopleList {
                 print("IN - Added \(person.getDisplayName()) to the end of the list.");
             }
             else {
-                print("IN - Added \(person.getDisplayName()) between \(previous!.getDisplayName()) and \(runner!.getDisplayName())");
+                print("IN - Added \(person.getDisplayName()) between \(previous!.getDisplayName()) and \(runner!.getDisplayName())")
             }
         }
         
