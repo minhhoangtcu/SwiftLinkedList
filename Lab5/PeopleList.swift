@@ -174,9 +174,10 @@ class PeopleList {
             print("UPDATE - List is empty.")
         }
         else {
-            var runner: Person? = root!.next
+            var runner: Person? = root!
             
-            while runner != nil && runner!.id == id && runner!.name == name {
+            // stop when runner reaches end of list or find somebody with provided name
+            while runner != nil && runner!.id != id && runner!.name != name {
                 runner = runner!.next
             }
             
