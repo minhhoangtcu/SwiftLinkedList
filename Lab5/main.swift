@@ -1,3 +1,43 @@
+/* Program Name:    Lab 5                                                 *
+*                                                                         *
+*  Student Name:    Han Ngo, Minh Hoang                                   *
+*  Semester:        Spring,  2016                                         *
+*  Class & Section: CoSc 30403                                            *
+*  Instructor:      Dr. James Comer                                       *
+*  Due Date:        September 23, 1999                                    *
+*                                                                         *
+*   Program Overview:                                                     *
+*       This program employs Snobol4, uses derived type to build the data *
+*       structure of a linked list. There are four main functions for the *
+*       project - insertion, update, deletion, and display. Information is*
+*       inserted in order, so searching and display will be also in order *
+*       The program reads the input file and do accordantly through       *
+*       subroutines and derived type.                                     *
+*                                                                         *
+*                                                                         *
+*   Input: File input provided from the instructor                        *
+*                                                                         *
+*   Output:                                                               *
+*       Output from the program will consist of –                         *
+*     1) appropriate user feedback indicating successful completion of    *
+*     the commands (insert, delete, update, or print)                     *
+*     2) upon termination of the input, a complete listing                *
+*     of all nodes in the linked list starting with the first node        *
+*                                                                         *
+*                                                                         *
+*   Significant Program Variables:                                        *
+*       id                  - integer type, holds identification number   *
+*                           of the person in the list                     *
+*       department          - character type, holds the departmental/     *
+*                             subject info of the educator                *
+*       title               - character type, holds the title             *
+*       pay                 - float type, holds the amount of payment     *
+*       person              - derived type/object holds all the info      *
+*                           and a link to the next person                 *
+*       runner              - a pointer of the derived type, used for     *
+*                           searching and getting information             *
+***************************************************************************/
+
 import Foundation
 
 // IMPORTANT VARIABLES/CONSTRANT
